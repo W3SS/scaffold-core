@@ -1,0 +1,13 @@
+{
+  "author": "Chris Fryer",
+  "name": "scaffold-core",
+  "description": "",
+  "license": "MIT",
+  "dependencies": {
+    
+  },
+  "scripts": {
+    "install": "npm install -g heroku"
+  },
+  "version": "1.0.0"
+}

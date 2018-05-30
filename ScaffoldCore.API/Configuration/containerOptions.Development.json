@@ -1,0 +1,21 @@
+﻿{
+	"Database": {
+		"SqlConnectionString": "Server=localhost,1401;Database=ScaffoldCore;User Id=sa;Password=P4ssw0rd!;"
+	},
+	"Caching": {
+		"RedisHost": "127.0.0.1",
+		"RedisePort": 6379,
+		"RedisDatabaseId": 0
+	},
+	"Token": {
+		"Issuer": "ScaffoldCore",
+		"Audience": "ScaffoldCore",
+		"SecurityKey": ""
+	},
+	"CORS": {
+		"PolicyName": "DefaultCorsPolicy",
+		"Origins": [
+			"http://localhost:6600"
+		]
+	}
+}

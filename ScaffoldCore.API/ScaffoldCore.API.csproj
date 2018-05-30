@@ -1,0 +1,57 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+	<PropertyGroup>
+		<TargetFramework>netcoreapp2.0</TargetFramework>
+		<DockerComposeProjectPath>..\docker-compose.dcproj</DockerComposeProjectPath>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+		<DocumentationFile>bin\Debug\netcoreapp1.1\ScaffoldCore.API.xml</DocumentationFile>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Microsoft.ApplicationInsights.AspNetCore" Version="2.2.1" />
+		<PackageReference Include="Microsoft.AspNetCore" Version="2.0.2" />
+		<PackageReference Include="Microsoft.AspNetCore.Cors" Version="2.0.2" />
+		<PackageReference Include="Microsoft.AspNetCore.Mvc" Version="2.0.3" />
+		<PackageReference Include="Microsoft.AspNetCore.StaticFiles" Version="2.0.2" />
+		<PackageReference Include="Microsoft.Extensions.Caching.Redis" Version="2.0.1" />
+		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="2.0.1" />
+		<PackageReference Include="Serilog" Version="2.6.0" />
+		<PackageReference Include="Serilog.AspNetCore" Version="2.1.1" />
+		<PackageReference Include="Serilog.Sinks.Console" Version="3.1.1" />
+		<PackageReference Include="Serilog.Sinks.File" Version="4.0.0" />
+		<PackageReference Include="Swashbuckle.AspNetCore" Version="2.3.0" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<DotNetCliToolReference Include="Microsoft.EntityFrameworkCore.Tools.DotNet" Version="2.0.0" />
+		<DotNetCliToolReference Include="Microsoft.Extensions.SecretManager.Tools" Version="2.0.0" />
+		<DotNetCliToolReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" Version="2.0.0" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\ScaffoldCore.Domain\ScaffoldCore.Domain.csproj" />
+		<ProjectReference Include="..\ScaffoldCore.Composition\ScaffoldCore.Composition.csproj" />
+		<ProjectReference Include="..\ScaffoldCore.Infrastructure\ScaffoldCore.Infrastructure.csproj" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<DotNetCliToolReference Include="Swashbuckle.AspNetCore.Cli" Version="2.1.0-beta1" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<Content Update="wwwroot\swagger-ui\theme.css">
+			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+	</ItemGroup>
+
+	<Target Name="PreBuild" BeforeTargets="PreBuildEvent">
+	  <Exec Command="npm install nswag -g" />
+	</Target>
+
+	<Target Name="PostBuild" AfterTargets="PostBuildEvent">
+	  <Exec Command="nswag webapi2swagger /runtime:NetCore20 /assembly:&quot;$(TargetPath)&quot;  /output:&quot;$(ProjectDir)wwwroot/definition.json&quot;" />
+	</Target>
+
+</Project>
