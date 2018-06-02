@@ -7,15 +7,15 @@ using System.Collections.Generic;
 namespace ScaffoldCore.Service.Controllers
 {
 	[Route("api/[controller]")]
-	public class SampleController
+	public class DbSampleController
 	{
-		private readonly SampleService _Service;
+		private readonly DbSampleService _Service;
 
 		/// <summary>
 		/// Initializes a new instance of the <see cref="TestController"/> class.
 		/// </summary>
 		/// <param name="Service">The service.</param>
-		public SampleController(SampleService Service)
+		public DbSampleController(DbSampleService Service)
 		{
 			_Service = Service;
 		}

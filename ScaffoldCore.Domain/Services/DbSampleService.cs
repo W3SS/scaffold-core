@@ -11,14 +11,15 @@ using System.Linq;
 using ScaffoldCore.Domain.BindingModels;
 using ScaffoldCore.Domain.Entities;
 using Dapper.Contrib.Extensions;
+using Microsoft.AspNetCore.Mvc;
 
 namespace ScaffoldCore.Domain.Services
 {
-	public class SampleService : BaseService
+	public class DbSampleService : BaseService
 	{
 		private IDbConnection Connection;
 
-		public SampleService(IDbConnection connection, IMapper mapper, ILogger logger) : base(mapper, logger)
+		public DbSampleService(IDbConnection connection, IMapper mapper, ILogger logger) : base(mapper, logger)
 		{
 			Connection = connection;
 		}

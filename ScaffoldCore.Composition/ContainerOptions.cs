@@ -25,6 +25,7 @@ namespace ScaffoldCore.Composition
 		public class DatabaseSettings
 		{
 			public string SqlConnectionString { get; set; }
+			public string PostgresConnectionString { get; set; }
 		}
 
 		public class TokenSettings

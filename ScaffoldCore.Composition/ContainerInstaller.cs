@@ -22,6 +22,8 @@ namespace ScaffoldCore.Composition
 
 			new LoggerInstaller(_options).Install(builder);
 			new IDbConnectionInstaller(_options).Install(builder);
+			new MartenInstaller(_options).Install(builder);
+			new ContextInstaller(_options).Install(builder);
 			new MapperInstaller(_options).Install(builder);
 			new ProcessorInstaller(_options).Install(builder);
 			new ValidatorInstaller(_options).Install(builder);

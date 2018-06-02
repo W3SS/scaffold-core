@@ -1,6 +1,7 @@
 ﻿{
 	"Database": {
-		"SqlConnectionString": "Server=localhost,1401;Database=ScaffoldCore;User Id=sa;Password=P4ssw0rd!;"
+		"SqlConnectionString": "Server=localhost,1401;Database=ScaffoldCore;User Id=sa;Password=P4ssw0rd!;",
+		"PostgresConnectionString": "host=localhost;database=scaffoldcore;password=P4ssw0rd!;username=postgres"
 	},
 	"Caching": {
 		"RedisHost": "127.0.0.1",
